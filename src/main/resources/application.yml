@@ -4,3 +4,20 @@ server:
 logging:
   level:
     org.springframework.security: trace
+    org.springframework.security.oauth2: trace
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/oauth2?createDatabaseIfNotExist=true
+    username: oauth2user
+    password: oauth2pass
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        format_sql: true
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+    show-sql: true
