@@ -21,3 +21,27 @@ spring:
       ddl-auto: update
     generate-ddl: false
     show-sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google-idp:
+            provider: google
+            client-id: ${GOOGLE_CLIENT_ID:your_client_id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:your_client_secret}
+            scope: openid, https://www.googleapis.com/auth/userinfo.profile, https://www.googleapis.com/auth/userinfo.email
+            client-name: oauth2-client
+        provider:
+          google:
+            user-name-attribute: email
+
+
+  #http://127.0.0.1:9000/login/oauth2/code/messaging-client-oidc
+  #
+  #http://127.0.0.1:9000/authorized
+  #
+  #http://127.0.0.1:9000/index
+  #
+  #http://localhost:9000/login/oauth2/code/google-idp
+  #
+  #https://oauthdebugger.com/debug

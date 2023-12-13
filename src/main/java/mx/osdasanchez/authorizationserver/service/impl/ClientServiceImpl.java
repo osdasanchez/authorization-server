@@ -52,6 +52,7 @@ public class ClientServiceImpl implements ClientService {
                 .authenticationMethods(dto.getAuthenticationMethods())
                 .authorizationGrantTypes(dto.getAuthorizationGrantTypes())
                 .redirectUris(dto.getRedirectUris())
+                .postLogoutRedirectUris(dto.getPostLogoutRedirectUris())
                 .scopes(dto.getScopes())
                 .requireProofKey(dto.isRequireProofKey())
                 .build();
