@@ -24,6 +24,7 @@ public class BeansConfig {
         cors.setAllowCredentials(true);
         cors.addAllowedOrigin("http://127.0.0.1:4200");
         cors.addAllowedOrigin("http://localhost:4200");
+        cors.addAllowedOrigin("http://nmp-prestamos-front.s3-website-us-east-1.amazonaws.com");
         source.registerCorsConfiguration("/**", cors);
         return source;
     }

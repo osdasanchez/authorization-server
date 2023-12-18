@@ -8,9 +8,9 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mariadb://localhost:3306/oauth2?createDatabaseIfNotExist=true
-    username: oauth2user
-    password: oauth2pass
+    url: jdbc:mariadb://database-1.cntm6woxdkif.us-east-1.rds.amazonaws.com:3306/oauth2
+    username: root
+    password: D4n1el545836$
   jpa:
     properties:
       hibernate:
@@ -35,7 +35,14 @@ spring:
           google:
             user-name-attribute: email
 
-
+springdoc:
+  api-docs:
+    version: openapi_3_0
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+  show-oauth2-endpoints: true
   #http://127.0.0.1:9000/login/oauth2/code/messaging-client-oidc
   #
   #http://127.0.0.1:9000/authorized
