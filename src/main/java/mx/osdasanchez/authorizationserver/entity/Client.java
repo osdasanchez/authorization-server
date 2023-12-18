@@ -9,7 +9,9 @@ import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 
+import java.time.Duration;
 import java.util.Date;
 import java.util.Set;
 
@@ -46,6 +48,7 @@ public class Client {
                 .redirectUris(ru -> ru.addAll(client.getRedirectUris()))
                 .postLogoutRedirectUris(pl -> pl.addAll(client.getPostLogoutRedirectUris()))
                 .scopes(sc -> sc.addAll(client.getScopes()))
+                .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(1)).build())
                 .clientSettings(ClientSettings
                         .builder()
                         .requireProofKey(client.isRequireProofKey())
